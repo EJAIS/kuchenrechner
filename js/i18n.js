@@ -202,6 +202,11 @@ function applyTranslations() {
 
   document.documentElement.lang = _currentLang;
 
+  const pageTitle = t("app.title");
+  if (typeof pageTitle === "string") {
+    document.title = pageTitle;
+  }
+
   const langBtn = document.getElementById("btn-lang");
   if (langBtn) {
     // Button zeigt die Sprache, in die gewechselt wird (Muster wie in

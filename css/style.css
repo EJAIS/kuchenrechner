@@ -1,0 +1,14 @@
+/* Kuchenrechner - Basisstile */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.card {
+  /* Platzhalter für Eingabe- und Ergebnis-Karten */
+}

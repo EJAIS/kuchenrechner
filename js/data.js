@@ -1,0 +1,1 @@
+// Kuchenrechner - Datenmodelle / Konstanten

@@ -9,6 +9,34 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+/* Kopfbereich: Titel/Untertitel links, Sprachumschalter oben rechts */
+#app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#app-header-text h1 {
+  margin: 0 0 0.25rem;
+}
+
+#app-header-text p {
+  margin: 0;
+}
+
+#btn-lang {
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
 .card {
   /* Platzhalter für Eingabe- und Ergebnis-Karten */
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.hint-box {
+  margin-top: 1rem;
 }

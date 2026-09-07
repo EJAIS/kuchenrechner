@@ -8,21 +8,46 @@
 </head>
 <body>
   <header id="app-header">
-    <h1>Kuchenrechner</h1>
+    <div id="app-header-text">
+      <h1 data-i18n="app.title">Kuchenrechner</h1>
+      <p id="app-subtitle" data-i18n="app.subtitle">
+        Wie weit musst du radeln, um deinen Kuchen wieder abzustrampeln?
+      </p>
+    </div>
+    <button id="btn-lang" type="button" aria-label="Switch language">EN</button>
   </header>
 
   <main id="app-main">
     <section id="input-card" class="card">
+      <h2 data-i18n="ui.inputHeading">Eingabe</h2>
       <!-- Eingabe-Karte: Formularfelder folgen hier -->
     </section>
 
     <section id="result-card" class="card">
+      <h2 data-i18n="ui.resultHeading">Ergebnis</h2>
       <!-- Ergebnis-Karte: Berechnungsergebnisse folgen hier -->
+
+      <div id="kilojoule-hint" class="hint-box">
+        <strong data-i18n="hint.kilojouleTitle">Profi-Tipp</strong>
+        <p data-i18n="hint.kilojouleText">
+          Viele Fahrradcomputer und Smartwatches zeigen neben Kalorien auch
+          verbrauchte Kilojoule (kJ) an. Durch einen netten Zufall gilt:
+          1 kcal entspricht zwar eigentlich 4,184 kJ, aber weil der
+          menschliche Körper beim Radfahren nur etwa 20–25 % der
+          Nahrungsenergie tatsächlich in Vortrieb umsetzt, liegt die auf dem
+          Tacho angezeigte kJ-Zahl ziemlich nah an den tatsächlich
+          verbrannten kcal. Grober Faustwert: kJ auf dem Display ≈ kcal, die
+          du dir redlich verdient hast.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer id="app-footer">
-    <!-- Footer-Inhalt folgt hier -->
+    <p data-i18n="footer.disclaimer">
+      Alle Angaben ohne Gewähr – grobe Richtwerte für den Spaß am Rad, keine
+      sportmedizinische Beratung.
+    </p>
   </footer>
 
   <script src="./js/data.js"></script>

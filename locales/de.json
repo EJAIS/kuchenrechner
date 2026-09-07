@@ -1,2 +1,67 @@
 {
+  "app": {
+    "title": "Kuchenrechner",
+    "subtitle": "Wie weit musst du radeln, um deinen Kuchen wieder abzustrampeln?"
+  },
+
+  "cake": {
+    "apfelkuchen": { "name": "Apfelkuchen" },
+    "kaesekuchen": { "name": "Käsekuchen" },
+    "schwarzwaelderkirsch": { "name": "Schwarzwälder Kirschtorte" },
+    "sachertorte": { "name": "Sachertorte" },
+    "bienenstich": { "name": "Bienenstich" },
+    "pflaumenkuchen": { "name": "Pflaumenkuchen" },
+    "moehrenkuchen": { "name": "Möhrenkuchen" },
+    "donauwelle": { "name": "Donauwelle" },
+    "custom": { "name": "Eigene Wahl" }
+  },
+
+  "rider": {
+    "gemuetlich": { "name": "Gemütlich" },
+    "zuegig": { "name": "Zügig" },
+    "ambitioniert": { "name": "Ambitioniert" }
+  },
+
+  "terrain": {
+    "flach": "Flach",
+    "huegelig": "Hügelig",
+    "berg": "Berg"
+  },
+
+  "ui": {
+    "inputHeading": "Eingabe",
+    "resultHeading": "Ergebnis",
+    "cakeLabel": "Welchen Kuchen hast du gegessen?",
+    "customKcalLabel": "Kalorien (kcal)",
+    "riderLabel": "Wie fährst du?",
+    "weightLabel": "Dein Gewicht (kg)",
+    "terrainLabel": "Gelände",
+    "calculateButton": "Berechnen",
+    "resetButton": "Zurücksetzen"
+  },
+
+  "result": {
+    "distanceText": "Du musst {distance} km fahren",
+    "timeText": "Das dauert etwa {time}",
+    "speedText": "bei ca. {speed} km/h auf flacher Strecke",
+    "quotes": [
+      "Zeit, die Waden warmzumachen.",
+      "Du hast dir eine zweite Portion Sahne redlich verdient.",
+      "Das reicht locker für ein paar Extra-Runden ums nächste Feld.",
+      "Kettenöl nicht vergessen – dein Hintern wird es dir danken.",
+      "Diese Kalorien radelst du locker wieder runter. Locker.",
+      "Sattelhöhe checken, Trinkflasche füllen, los geht's.",
+      "Mehr Wattzahl, weniger Sahnehäubchen – so einfach ist das nicht immer.",
+      "Kurbeln statt Kuchengabel schwingen – ab aufs Rad."
+    ]
+  },
+
+  "hint": {
+    "kilojouleTitle": "Profi-Tipp",
+    "kilojouleText": "Viele Fahrradcomputer und Smartwatches zeigen neben Kalorien auch verbrauchte Kilojoule (kJ) an. Durch einen netten Zufall gilt: 1 kcal entspricht zwar eigentlich 4,184 kJ, aber weil der menschliche Körper beim Radfahren nur etwa 20–25 % der Nahrungsenergie tatsächlich in Vortrieb umsetzt, liegt die auf dem Tacho angezeigte kJ-Zahl ziemlich nah an den tatsächlich verbrannten kcal. Grober Faustwert: kJ auf dem Display ≈ kcal, die du dir redlich verdient hast."
+  },
+
+  "footer": {
+    "disclaimer": "Alle Angaben ohne Gewähr – grobe Richtwerte für den Spaß am Rad, keine sportmedizinische Beratung."
+  }
 }

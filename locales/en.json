@@ -1,0 +1,75 @@
+{
+  "app": {
+    "title": "Cake Calculator",
+    "subtitle": "How far do you need to ride to burn off that cake?"
+  },
+
+  "cake": {
+    "apfelkuchen": { "name": "Apple Cake" },
+    "kaesekuchen": { "name": "Cheesecake" },
+    "schwarzwaelderkirsch": { "name": "Black Forest Cake" },
+    "sachertorte": { "name": "Sacher Torte" },
+    "bienenstich": { "name": "Bee Sting Cake" },
+    "pflaumenkuchen": { "name": "Plum Cake" },
+    "moehrenkuchen": { "name": "Carrot Cake" },
+    "donauwelle": { "name": "Marble Ripple Cake" },
+    "custom": { "name": "Custom" }
+  },
+
+  "rider": {
+    "gemuetlich": { "name": "Easy" },
+    "zuegig": { "name": "Brisk" },
+    "ambitioniert": { "name": "Ambitious" }
+  },
+
+  "terrain": {
+    "flach": "Flat",
+    "huegelig": "Hilly",
+    "berg": "Mountain"
+  },
+
+  "ui": {
+    "inputHeading": "Input",
+    "resultHeading": "Result",
+    "cakeLabel": "Which cake did you eat?",
+    "customKcalLabel": "Calories (kcal)",
+    "riderLabel": "How do you ride?",
+    "weightLabel": "Your weight (kg)",
+    "terrainLabel": "Terrain",
+    "calculateButton": "Calculate",
+    "resetButton": "Reset",
+    "distanceLabel": "Distance",
+    "timeLabel": "Time",
+    "resultModeLabel": "Show result as",
+    "resultModeTime": "Time",
+    "resultModeDistance": "Distance",
+    "resultModeBoth": "Both",
+    "durationHoursMinutes": "{hours} hr {minutes} min",
+    "durationMinutesOnly": "{minutes} min"
+  },
+
+  "result": {
+    "distanceText": "You need to ride {distance} km",
+    "timeText": "That takes about {time}",
+    "speedText": "at roughly {speed} km/h on flat ground",
+    "quotes": [
+      "Time to dust off the chamois cream.",
+      "You've earned that extra scoop of whipped cream, no debate.",
+      "Somewhere out there, a hill is waiting to make you regret that second slice.",
+      "Oil the chain, fill the bottle, go.",
+      "Legs of steel, incoming.",
+      "Cake in, watts out – simple math, tough execution.",
+      "Consider this your official permission to eat dessert first next time.",
+      "Spin now, brag later."
+    ]
+  },
+
+  "hint": {
+    "kilojouleTitle": "Pro tip",
+    "kilojouleText": "Many bike computers and smartwatches show kilojoules (kJ) burned alongside calories. Handy coincidence: 1 kcal is technically 4.184 kJ, but since your body only converts roughly 20–25% of food energy into actual pedaling power, the kJ number on your head unit lines up surprisingly closely with the kcal you just earned back. Rule of thumb: kJ on the display ≈ kcal you rode off."
+  },
+
+  "footer": {
+    "disclaimer": "All figures are rough estimates for fun, not sports-medical advice."
+  }
+}

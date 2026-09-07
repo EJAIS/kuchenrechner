@@ -1,0 +1,530 @@
+/* Kuchenrechner - Stylesheet */
+/* Warmes Karamell/Kupfer als Kuchen-Akzent, frisches Grün als Rad-Kontrast. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #fdf6ec;
+  --surface: #ffffff;
+  --surface-alt: #fbf1e2;
+  --border: #ecdcc2;
+  --text: #3b2a1e;
+  --text-muted: #8a7565;
+
+  --caramel: #c97a3d;
+  --caramel-strong: #a85c2c;
+  --caramel-soft: #f6e4cd;
+
+  --bike-green: #2f9e6e;
+  --bike-green-strong: #22794f;
+  --bike-green-soft: #e0f3ea;
+
+  --cherry-red: #b23a3a;
+  --sweat-blue: #57a6d8;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 6px 20px rgba(59, 42, 30, 0.1);
+  --shadow-sm: 0 2px 8px rgba(59, 42, 30, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: inherit;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+  color: var(--caramel-strong);
+}
+
+h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+  color: var(--text);
+}
+
+/* ── Kopfbereich: Titel/Untertitel links, Sprachumschalter oben rechts ──── */
+#app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#app-header-text h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+  color: var(--caramel-strong);
+}
+
+#app-header-text p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+#btn-lang {
+  flex: 0 0 auto;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+#btn-lang:hover {
+  border-color: var(--caramel);
+  color: var(--caramel-strong);
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+#app-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.field-group {
+  margin-bottom: 1.5rem;
+}
+
+.field-group:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Kachel-Raster (Kuchen/Fahrertyp) ─────────────────────────────────── */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.6rem;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.85rem 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, transform 0.1s ease, background 0.15s ease;
+}
+
+.tile:hover {
+  border-color: var(--caramel);
+  transform: translateY(-2px);
+}
+
+.tile:active {
+  transform: translateY(0);
+}
+
+.tile.is-selected {
+  border-color: var(--bike-green);
+  background: var(--bike-green-soft);
+}
+
+.tile-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.tile-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tile-kcal,
+.tile-watt {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.tile.is-selected .tile-kcal,
+.tile.is-selected .tile-watt {
+  color: var(--bike-green-strong);
+}
+
+/* ── Slider-Steuerungen (Gewicht, eigene Kalorien) ────────────────────── */
+.slider-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.slider-control label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--bike-green);
+  height: 1.5rem;
+}
+
+input[type="number"] {
+  width: 4.5rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+}
+
+input[type="number"]:focus,
+input[type="range"]:focus {
+  outline: 2px solid var(--bike-green);
+  outline-offset: 2px;
+}
+
+#custom-kcal-value {
+  font-weight: 600;
+  color: var(--caramel-strong);
+  min-width: 4.5rem;
+  text-align: right;
+}
+
+.unit {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ── Toggle-Buttons (Gelände) & Segmented Control (Ergebnis-Ansicht) ──── */
+.toggle-group,
+.segmented-control {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.toggle-btn,
+.segment-btn {
+  flex: 1 1 auto;
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.toggle-btn:hover,
+.segment-btn:hover {
+  border-color: var(--caramel);
+}
+
+.toggle-btn.is-selected,
+.segment-btn.is-selected {
+  border-color: var(--bike-green);
+  background: var(--bike-green);
+  color: #ffffff;
+}
+
+/* ── Ergebnis-Karte ────────────────────────────────────────────────────── */
+.result-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.stat-block {
+  flex: 1 1 140px;
+  background: var(--caramel-soft);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--caramel-strong);
+  line-height: 1.1;
+}
+
+.stat-label {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.result-speed {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.result-quote {
+  margin: 0 0 1rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--bike-green-strong);
+  background: var(--bike-green-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+}
+
+/* ── Ergebnis-Illustration: Kuchen · Straße · Rennrad mit Fahrer ────────── */
+.ride-illustration {
+  margin: 0.5rem 0 1rem;
+}
+
+.ride-illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.road {
+  stroke: var(--text-muted);
+  stroke-width: 4;
+  stroke-dasharray: 10 8;
+  stroke-linecap: round;
+}
+
+.cake-outline {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.cake-layer-top {
+  fill: var(--caramel-soft);
+}
+
+.cake-layer-filling {
+  fill: var(--caramel);
+}
+
+.cake-layer-mid {
+  fill: var(--caramel-soft);
+}
+
+.cake-layer-base {
+  fill: var(--caramel-strong);
+}
+
+.cherry-fruit {
+  fill: var(--cherry-red);
+}
+
+.cherry-stem {
+  fill: none;
+  stroke: var(--caramel-strong);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.wheel {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 4;
+}
+
+.frame {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.crank {
+  fill: var(--text);
+}
+
+.rider-head {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 3;
+}
+
+.rider-torso,
+.rider-leg,
+.rider-arm {
+  fill: none;
+  stroke: var(--bike-green-strong);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.sweat-drop {
+  fill: var(--sweat-blue);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Fahrt-Feedback: kurzer Vor-/Zurück-Ruck bei jedem neuen Ergebnis */
+.cyclist-anim {
+  transform: translateX(0);
+}
+
+.cyclist-anim.is-riding {
+  animation: ride-bounce 0.6s ease-out;
+}
+
+@keyframes ride-bounce {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(10px);
+  }
+  65% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Gag bei sehr großen Distanzen (> 50 km): Fahrer hängt erschöpft über dem
+   Lenker, ein Schweißtropfen erscheint und "tropft" leicht. */
+.ride-illustration.is-exhausted .rider-figure {
+  transform: rotate(8deg);
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease;
+}
+
+.ride-illustration.is-exhausted .sweat-drop {
+  opacity: 1;
+  animation: sweat-drip 1.1s ease-in-out infinite;
+}
+
+@keyframes sweat-drip {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyclist-anim.is-riding {
+    animation: none;
+  }
+  .ride-illustration.is-exhausted .sweat-drop {
+    animation: none;
+  }
+  .ride-illustration.is-exhausted .rider-figure {
+    transition: none;
+  }
+}
+
+.hint-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border: 1px dashed var(--caramel);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.hint-box strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--caramel-strong);
+}
+
+.hint-box p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+#app-footer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+/* ── Responsive: Kacheln stapeln sich auf schmalen Bildschirmen ─────────── */
+@media (max-width: 480px) {
+  #app-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #btn-lang {
+    align-self: flex-end;
+  }
+
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toggle-group,
+  .segmented-control {
+    flex-direction: column;
+  }
+
+  .result-stats {
+    flex-direction: column;
+  }
+}

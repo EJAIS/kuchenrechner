@@ -93,8 +93,49 @@
       <p id="result-speed" class="result-speed"></p>
       <p id="result-quote" class="result-quote"></p>
 
-      <div id="ride-animation" class="ride-animation-placeholder">
-        <!-- Platzhalter: SVG-Fahrt-Animation folgt in einem späteren Schritt -->
+      <div id="ride-animation" class="ride-illustration" aria-hidden="true">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <!-- Straße -->
+          <line class="road" x1="95" y1="112" x2="305" y2="112" />
+
+          <!-- Kuchenstück: Dreieck mit Schicht-Streifen und Kirsche -->
+          <g class="cake">
+            <clipPath id="cake-clip">
+              <polygon points="15,112 75,112 45,32" />
+            </clipPath>
+            <g clip-path="url(#cake-clip)">
+              <rect x="0" y="32" width="90" height="18" class="cake-layer cake-layer-top" />
+              <rect x="0" y="50" width="90" height="16" class="cake-layer cake-layer-filling" />
+              <rect x="0" y="66" width="90" height="16" class="cake-layer cake-layer-mid" />
+              <rect x="0" y="82" width="90" height="30" class="cake-layer cake-layer-base" />
+            </g>
+            <polygon points="15,112 75,112 45,32" class="cake-outline" />
+            <path d="M45,32 q-2,-8 3,-10" class="cherry-stem" />
+            <circle cx="49" cy="21" r="5" class="cherry-fruit" />
+          </g>
+
+          <!-- Rennrad mit Fahrer (Strichmännchen-Stil) -->
+          <g transform="translate(300,0)">
+            <g id="cyclist-anim" class="cyclist-anim">
+              <circle cx="14" cy="112" r="14" class="wheel" />
+              <circle cx="64" cy="112" r="14" class="wheel" />
+              <path d="M14,112 L38,90 L64,112" class="frame" />
+              <path d="M38,90 L52,90" class="frame" />
+              <path d="M38,90 L34,112" class="frame" />
+              <circle cx="34" cy="112" r="3" class="crank" />
+              <g class="rider-figure">
+                <circle cx="42" cy="70" r="8" class="rider-head" />
+                <path d="M42,78 L36,96" class="rider-torso" />
+                <path d="M36,96 L34,112" class="rider-leg" />
+                <path d="M38,86 L52,90" class="rider-arm" />
+              </g>
+              <path
+                d="M54,58 C58,64 58,70 54,72 C50,70 50,64 54,58 Z"
+                class="sweat-drop"
+              />
+            </g>
+          </g>
+        </svg>
       </div>
 
       <div id="kilojoule-hint" class="hint-box">

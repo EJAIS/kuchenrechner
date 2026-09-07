@@ -45,8 +45,15 @@ const resultTimeValueEl = document.getElementById("result-time-value");
 const resultSpeedEl = document.getElementById("result-speed");
 const resultQuoteEl = document.getElementById("result-quote");
 
+const rideIllustrationEl = document.getElementById("ride-animation");
+const cyclistAnimEl = document.getElementById("cyclist-anim");
+
 const WEIGHT_MIN = 40;
 const WEIGHT_MAX = 140;
+
+// Ab dieser Distanz (km) bekommt der Fahrer den "erschöpft"-Look
+// (Schweißtropfen, leicht über den Lenker gebeugt) - siehe renderResult().
+const EXHAUSTION_DISTANCE_KM = 50;
 
 // ── Hilfsfunktionen ──────────────────────────────────────────────────────
 
@@ -297,6 +304,33 @@ function renderResult(result) {
 
   resultSpeedEl.textContent = t("result.speedText", { speed: formatNumber(speedRounded, 1) });
   resultQuoteEl.textContent = getRotatingResultQuote();
+
+  updateExhaustionLook(result.distanceKm);
+  triggerRideAnimation();
+}
+
+// ── Ergebnis-Illustration (Kuchen · Straße · Rennrad) ────────────────────
+
+/**
+ * Spielt die kurze "Fahrt"-Animation des Rad-Icons ab, als visuelles
+ * Feedback, dass ein neues Ergebnis berechnet wurde. Entfernt die Klasse
+ * zuerst und erzwingt einen Reflow, damit die CSS-Animation bei jedem
+ * Aufruf neu startet (auch wenn sie noch lief).
+ */
+function triggerRideAnimation() {
+  cyclistAnimEl.classList.remove("is-riding");
+  // eslint-disable-next-line no-unused-expressions
+  cyclistAnimEl.offsetWidth; // Reflow erzwingen, um die Animation neu zu starten
+  cyclistAnimEl.classList.add("is-riding");
+}
+
+/**
+ * Kleiner visueller Gag bei sehr großen Distanzen: der Fahrer hängt
+ * "erschöpft" über dem Lenker und ein Schweißtropfen erscheint (siehe
+ * .is-exhausted-Regeln in style.css).
+ */
+function updateExhaustionLook(distanceKm) {
+  rideIllustrationEl.classList.toggle("is-exhausted", distanceKm > EXHAUSTION_DISTANCE_KM);
 }
 
 // ── Initialisierung ──────────────────────────────────────────────────────

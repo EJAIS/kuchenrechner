@@ -20,12 +20,82 @@
   <main id="app-main">
     <section id="input-card" class="card">
       <h2 data-i18n="ui.inputHeading">Eingabe</h2>
-      <!-- Eingabe-Karte: Formularfelder folgen hier -->
+
+      <div class="field-group">
+        <h3 data-i18n="ui.cakeLabel">Welchen Kuchen hast du gegessen?</h3>
+        <div id="cake-tiles" class="tile-grid" role="group" aria-label="Kuchen">
+          <!-- Kacheln werden von app.js aus CAKES (data.js) gerendert -->
+        </div>
+        <div id="custom-kcal-control" class="slider-control" hidden>
+          <label for="custom-kcal-slider" data-i18n="ui.customKcalLabel">Kalorien (kcal)</label>
+          <div class="slider-row">
+            <input
+              type="range"
+              id="custom-kcal-slider"
+              data-field="customKcal"
+              min="100"
+              max="800"
+              step="10"
+              value="400"
+            >
+            <output id="custom-kcal-value" for="custom-kcal-slider">400 kcal</output>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <h3 data-i18n="ui.riderLabel">Wie fährst du?</h3>
+        <div id="rider-tiles" class="tile-grid" role="group" aria-label="Fahrertyp">
+          <!-- Kacheln werden von app.js aus RIDER_TYPES (data.js) gerendert -->
+        </div>
+      </div>
+
+      <div class="field-group">
+        <h3 data-i18n="ui.weightLabel">Dein Gewicht (kg)</h3>
+        <div id="weight-control" class="slider-control">
+          <input type="range" id="weight-slider" data-field="weight" min="40" max="140" step="1" value="75">
+          <input type="number" id="weight-number" data-field="weight" min="40" max="140" step="1" value="75">
+          <span class="unit">kg</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <h3 data-i18n="ui.terrainLabel">Gelände</h3>
+        <div id="terrain-toggle" class="toggle-group" role="group" aria-label="Gelände">
+          <!-- Buttons werden von app.js aus TERRAIN_FACTORS (data.js) gerendert -->
+        </div>
+      </div>
+
+      <div class="field-group">
+        <h3 data-i18n="ui.resultModeLabel">Ergebnis anzeigen als</h3>
+        <div id="result-mode-toggle" class="segmented-control" role="group" aria-label="Ergebnis-Ansicht">
+          <button type="button" class="segment-btn" data-result-mode="time" data-i18n="ui.resultModeTime" aria-pressed="false">Zeit</button>
+          <button type="button" class="segment-btn" data-result-mode="distance" data-i18n="ui.resultModeDistance" aria-pressed="false">Distanz</button>
+          <button type="button" class="segment-btn is-selected" data-result-mode="both" data-i18n="ui.resultModeBoth" aria-pressed="true">Beides</button>
+        </div>
+      </div>
     </section>
 
-    <section id="result-card" class="card">
+    <section id="result-card" class="card" hidden>
       <h2 data-i18n="ui.resultHeading">Ergebnis</h2>
-      <!-- Ergebnis-Karte: Berechnungsergebnisse folgen hier -->
+
+      <div id="result-stats" class="result-stats">
+        <div id="stat-distance" class="stat-block" data-metric="distance">
+          <div class="stat-value" id="result-distance-value">0,0 km</div>
+          <div class="stat-label" data-i18n="ui.distanceLabel">Distanz</div>
+        </div>
+        <div id="stat-time" class="stat-block" data-metric="time">
+          <div class="stat-value" id="result-time-value">0 Min.</div>
+          <div class="stat-label" data-i18n="ui.timeLabel">Zeit</div>
+        </div>
+      </div>
+
+      <p id="result-speed" class="result-speed"></p>
+      <p id="result-quote" class="result-quote"></p>
+
+      <div id="ride-animation" class="ride-animation-placeholder">
+        <!-- Platzhalter: SVG-Fahrt-Animation folgt in einem späteren Schritt -->
+      </div>
 
       <div id="kilojoule-hint" class="hint-box">
         <strong data-i18n="hint.kilojouleTitle">Profi-Tipp</strong>

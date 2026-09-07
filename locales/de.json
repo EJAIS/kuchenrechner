@@ -37,7 +37,15 @@
     "weightLabel": "Dein Gewicht (kg)",
     "terrainLabel": "Gelände",
     "calculateButton": "Berechnen",
-    "resetButton": "Zurücksetzen"
+    "resetButton": "Zurücksetzen",
+    "distanceLabel": "Distanz",
+    "timeLabel": "Zeit",
+    "resultModeLabel": "Ergebnis anzeigen als",
+    "resultModeTime": "Zeit",
+    "resultModeDistance": "Distanz",
+    "resultModeBoth": "Beides",
+    "durationHoursMinutes": "{hours} Std. {minutes} Min.",
+    "durationMinutesOnly": "{minutes} Min."
   },
 
   "result": {

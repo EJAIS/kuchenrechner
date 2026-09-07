@@ -37,7 +37,15 @@
     "weightLabel": "Your weight (kg)",
     "terrainLabel": "Terrain",
     "calculateButton": "Calculate",
-    "resetButton": "Reset"
+    "resetButton": "Reset",
+    "distanceLabel": "Distance",
+    "timeLabel": "Time",
+    "resultModeLabel": "Show result as",
+    "resultModeTime": "Time",
+    "resultModeDistance": "Distance",
+    "resultModeBoth": "Both",
+    "durationHoursMinutes": "{hours} hr {minutes} min",
+    "durationMinutesOnly": "{minutes} min"
   },
 
   "result": {
